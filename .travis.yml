@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t switchedfabric/docker-react -f Dockerfile.development .
+
+script:
+    - docker run switchedfabric/docker-react npm run test -- --coverage
